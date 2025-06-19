@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const apiKey = 'b0d660e269b1d765ea95151d897a5e3c';
+    const apiKey = 'b0d660e269b1d765ea95151d897a5e3c'; 
     const searchBtn = document.getElementById('search-btn');
     const cityInput = document.getElementById('city-input');
     const weatherInfo = document.getElementById('weather-info');
@@ -18,12 +18,26 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
         
+        // Added error handling for API key
+        if (!apiKey || apiKey === 'YOUR_API_KEY') {
+            weatherInfo.innerHTML = '<p style="color: red;">API key is missing or invalid</p>';
+            console.error('API key is missing or invalid');
+            return;
+        }
+        
         const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
         
         fetch(url)
             .then(response => {
                 if (!response.ok) {
-                    throw new Error('City not found');
+                    // More detailed error message
+                    if (response.status === 401) {
+                        throw new Error('Invalid API key - Please check your OpenWeatherMap API key');
+                    } else if (response.status === 404) {
+                        throw new Error('City not found');
+                    } else {
+                        throw new Error(`Error: ${response.status}`);
+                    }
                 }
                 return response.json();
             })
@@ -32,6 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             .catch(error => {
                 weatherInfo.innerHTML = `<p style="color: red;">${error.message}</p>`;
+                console.error('Error fetching weather:', error);
             });
     }
     
