@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const apiKey = 'b0d660e269b1d765ea95151d897a5e3c'; 
+    const apiKey = 'a877b4f705e5e95a199fdc2909053a86'; 
     const searchBtn = document.getElementById('search-btn');
     const cityInput = document.getElementById('city-input');
     const weatherInfo = document.getElementById('weather-info');
