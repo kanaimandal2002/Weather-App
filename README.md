@@ -12,6 +12,10 @@ A simple, API-based weather application that displays current weather conditions
 - 🔍 City search functionality
 - 📱 Responsive design for all devices
 
+## Live Demo
+
+You can view a live version of this tool at [(https://kanaimandal2002.github.io/weather-app/)]
+
 ## Getting Started 🚀
 
 ### Prerequisites
