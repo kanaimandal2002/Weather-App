@@ -21,7 +21,7 @@ You can view a live version of this tool at [(https://kanaimandal2002.github.io/
 ### Prerequisites
 
 - Web browser (Chrome, Firefox, Safari, Edge)
-- [OpenWeatherMap API key](https://openweathermap.org/api) (free tier available)
+- [OpenWeatherMap API key](https://openweathermap.org/api) 
 
 ### Installation
 
